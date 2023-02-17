@@ -12,7 +12,7 @@ def get_path(filename):
         return os.path.join(sys._MEIPASS, filename)
     else:
         return filename
-
+    
 def show_message_box():
     try:
         # Show the success message box
@@ -56,12 +56,17 @@ def check_file_exists():
                 # Do something if the user clicks no, such as cancel the operation
             root.destroy()
 
+def toggle_full_screen(event=None):
+    root.attributes("-fullscreen", not root.attributes("-fullscreen"))
+    
 # Create the GUI window
 root = tk.Tk()
 root.title("OpenGOAL settings reseter")
 
 # Set the window to open in full screen mode
 root.attributes('-fullscreen', True)
+root.bind("<F12>", toggle_full_screen)
+
 
 # Set the window icon
 icon = tk.PhotoImage(file=get_path("joshvaccum.PNG"))
