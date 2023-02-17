@@ -2,10 +2,11 @@ import tkinter as tk
 from tkinter import messagebox
 import os
 import sys
-appdata_dir = os.getenv('APPDATA')
-path =  appdata_dir  + r"\OpenGOAL\jak1\settings\pc-settings.gc"# Replace with the actual file path
-print (path)
+appdata_dir = os.getenv('APPDATA') #not ai
+path =  appdata_dir  + r"\OpenGOAL\jak1\settings\pc-settings.gc" #not ai
 
+
+#this function is not AI
 def get_path(filename):
     if hasattr(sys, "_MEIPASS"):
         return os.path.join(sys._MEIPASS, filename)
@@ -14,10 +15,6 @@ def get_path(filename):
 
 def show_message_box():
     try:
-        # Get the path to the current directory where the script is running
-     
-        # Create a file path for the broken-pc-settings.gc file in the current directory
-     
         # Show the success message box
         messagebox.showinfo("Success", "File has been reset! You should see a broken-pc-settings.gc file where this application was ran from that you can send to the developers so they can find/fix the issue!")
     except Exception as e:
@@ -44,7 +41,6 @@ def check_file_exists():
 
                 # Move the file to the new directory
                 os.replace(new_path + "\\" + new_filename, new_path  + "\\" + new_filename)
-                print("moved file to " + new_path  + "\\" + new_filename)
                 show_message_box()
                 break
             elif user_input == 'no':
@@ -77,7 +73,7 @@ root.geometry(f"{bg_image.width()}x{bg_image.height()}")
 background_label = tk.Label(root, image=bg_image)
 background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-# Create the OK button
+# Create the OK button LOL AI originally just called this the OK button and the text was just "OK"
 button1 = tk.Button(root, text="Reset the pc-settings.gc file", command=check_file_exists)
 
 # Add the OK button to the GUI window and center it
